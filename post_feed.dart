@@ -6,117 +6,130 @@ class PostFeed extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Container(
-          width: 350,
-          height: 75,
-          color: Colors.white,
-          child: Center(
-            child: ListTile(
-              leading: ClipOval(
-                child: SizedBox(
-                  width: 70,
-                  height: 70,
-                  child: Text(
-                    'Profile',
-                    style: TextStyle(fontSize: 15),
-                  ),
-                ),
-              ),
-              title: Text(
-                'username',
-                style: TextStyle(fontSize: 13),
-              ),
-              subtitle: Text(
-                'location',
-                style: TextStyle(fontSize: 10),
-              ),
-              trailing: const Icon(Icons.more_horiz),
-            ),
-          ),
-        ),
-        Container(
-          height: 375,
-          width: 375,
-          child: Text(
-            'post',
-            //fit: BoxFit.cover,
-          ),
-        ),
-        Container(
-          width: 375,
-          color: Colors.white,
-          child: Column(
-            // ignore: prefer_const_literals_to_create_immutables
+        // User info section
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+          child: Row(
             children: [
-              SizedBox(height: 20),
-              Row(
+              CircleAvatar(
+                radius: 20,
+                backgroundColor: Colors.grey[300],
+                // Replace 'Profile' text with user profile image
+                child: Icon(Icons.person, size: 30),
+              ),
+              SizedBox(width: 12),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(width: 20),
-                  Icon(
-                    Icons.favorite_outlined,
-                    size: 25,
+                  Text(
+                    'username',
+                    style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w600,
+                    ),
                   ),
-                  SizedBox(width: 25),
-                  Icon(
-                    Icons.comment,
-                    size: 25,
-                  ),
-                  SizedBox(width: 25),
-                  const Spacer(),
-                  Padding(
-                    padding: EdgeInsets.only(right: 25),
-                    child: Icon(
-                      Icons.share,
-                      size: 25,
-                      //   SizedBox(width: 25),
+                  SizedBox(height: 4),
+                  Text(
+                    'location',
+                    style: TextStyle(
+                      fontSize: 12,
+                      color: Colors.grey[600],
                     ),
                   ),
                 ],
               ),
-              Padding(
-                padding: EdgeInsets.only(
-                  left: 19,
-                  top: 13.5,
-                  bottom: 5,
-                ),
-                child: Text(
-                  '0',
-                  style: TextStyle(
-                    fontSize: 13,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
+              Spacer(),
+              IconButton(
+                icon: Icon(Icons.more_vert_rounded),
+                onPressed: () {},
               ),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 15),
-                child: Row(
+            ],
+          ),
+        ),
+        // Post image section
+        Container(
+          height: 375,
+          width: double.infinity,
+          color: Color.fromARGB(
+              255, 140, 210, 221), // Placeholder color for post image
+          // Replace 'post' text with actual post image
+          child: Center(child: Text('Post Image')),
+        ),
+        // Like, Comment, Share
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+          child: Row(
+            children: [
+              IconButton(
+                icon: Icon(Icons.favorite_border_rounded),
+                onPressed: () {},
+              ),
+              IconButton(
+                icon: Icon(Icons.mode_comment_outlined),
+                onPressed: () {},
+              ),
+              Spacer(),
+              IconButton(
+                icon: Icon(Icons.share),
+                onPressed: () {},
+              ),
+            ],
+          ),
+        ),
+        // Likes count section
+        Padding(
+          padding: const EdgeInsets.only(left: 12),
+          child: Text(
+            '0 likes',
+            style: TextStyle(
+              fontSize: 14,
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+        ),
+        // Post caption section
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              RichText(
+                text: TextSpan(
+                  style: TextStyle(
+                    fontSize: 14,
+                    color: Color.fromRGBO(11, 11, 11, 0.921),
+                  ),
                   children: [
-                    Text(
-                      'usern ' + '',
-                      style: TextStyle(
-                        fontSize: 13,
-                        fontWeight: FontWeight.bold,
-                      ),
+                    TextSpan(
+                      text: 'user   ',
+                      style: TextStyle(fontWeight: FontWeight.bold),
                     ),
-                    Text(
-                      'caption',
-                      style: TextStyle(
-                        fontSize: 13,
-                      ),
+                    TextSpan(
+                      text: 'caption',
                     ),
                   ],
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(left: 15, top: 20, bottom: 8),
-                child: Text(
-                  'dateformat',
-                  style: TextStyle(fontSize: 11, color: Colors.grey),
-                ),
-              ),
             ],
           ),
+        ),
+        // Date posted section
+        Padding(
+          padding: const EdgeInsets.only(left: 12, top: 4, bottom: 8),
+          child: Text(
+            'dateformat',
+            style: TextStyle(
+              fontSize: 11,
+              color: Color.fromRGBO(8, 0, 0, 1),
+            ),
+          ),
+        ),
+        Divider(
+          thickness: 1,
+          height: 0,
+          color: Colors.grey[300],
         ),
       ],
     );
