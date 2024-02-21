@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
-import 'package:munch_map/pages/post_feed.dart';
+import 'package:munchmap_org/components/post_feed.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -23,7 +23,7 @@ class _HomeScreenState extends State<HomeScreen> {
           height: 28,
           child: Image.asset('images/logo.jpg'),
         ),
-        leading: Text('id'),
+        leading: Text('  id  '),
         actions: [
           const Icon(
             Icons.favorite_border_outlined,
@@ -36,7 +36,7 @@ class _HomeScreenState extends State<HomeScreen> {
             size: 30,
           ),
         ],
-        backgroundColor: const Color(0xffFAFAFA),
+        backgroundColor: Color.fromARGB(255, 141, 242, 225),
       ),
       body: CustomScrollView(
         slivers: [
