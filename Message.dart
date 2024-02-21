@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 class Message extends StatefulWidget {
   const Message({super.key});
 
