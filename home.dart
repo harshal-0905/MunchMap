@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:munch_map/pages/HomeScreen.dart';
-import 'package:munch_map/pages/Message.dart';
-import 'package:munch_map/pages/notification.dart';
-import 'package:munch_map/pages/Profile.dart';
+import 'package:munchmap_org/components/Message.dart';
+import 'package:munchmap_org/components/Profile.dart';
+import 'package:munchmap_org/components/notification.dart';
+import 'package:munchmap_org/components/add.dart';
+import 'package:munchmap_org/components/HomeScreen.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -13,6 +14,7 @@ class HomePage extends StatefulWidget {
 
 int _currentIndex = 0;
 
+// ignore: camel_case_types
 class _HomePage_State extends State<HomePage> {
   late PageController pageController;
 
@@ -51,19 +53,23 @@ class _HomePage_State extends State<HomePage> {
           onTap: navigationTapped,
           items: const [
             BottomNavigationBarItem(
-              icon: Icon(Icons.home),
+              icon: Icon(Icons.home_outlined),
               label: '',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.message),
+              icon: Icon(Icons.message_outlined),
               label: '',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.notifications),
+              icon: Icon(Icons.add),
               label: '',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.person),
+              icon: Icon(Icons.notifications_active_outlined),
+              label: '',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.person_rounded),
               label: '',
             ),
           ],
@@ -75,10 +81,12 @@ class _HomePage_State extends State<HomePage> {
         children: [
           HomeScreen(),
           Message(),
-          //  Notification(),
+          Add(),
+          Notifications(),
           Profile(),
         ],
       ),
     );
   }
 }
+
