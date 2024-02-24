@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:proto/tabs/feed_view.dart';
-import 'package:proto/tabs/reel_view.dart';
-import 'package:proto/tabs/tagged_view.dart';
+import 'package:munchmap_org/components/reel_view.dart';
+import 'package:munchmap_org/components/tagged_view.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -79,12 +78,12 @@ class _ProfilePageState extends State<ProfilePage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: const [
                   Text(
-                    'Kavya',
+                    'Ayush Patel',
                     style: TextStyle(fontWeight: FontWeight.bold),
                   ),
                   Text(' | '),
                   Text(
-                    'Developer',
+                    'FlutterDeveloper',
                     style: TextStyle(fontWeight: FontWeight.bold),
                   )
                 ],
@@ -104,7 +103,7 @@ class _ProfilePageState extends State<ProfilePage> {
               //link
 
               Text(
-                'youtube.com/kavya',
+                'youtube.com/ayush',
                 style: TextStyle(
                     color: Colors.blue[500], fontWeight: FontWeight.bold),
               ),
@@ -161,7 +160,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   ),
                   // reel tab
                   Tab(
-                    icon: Icon(Icons.video_collection, color: Colors.grey),
+                    icon: Icon(Icons.tag_rounded, color: Colors.grey),
                   ),
                   //tagged tab
                   Tab(
