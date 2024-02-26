@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:munchmap_org/components/reel_view.dart';
-import 'package:munchmap_org/components/tagged_view.dart';
+import 'package:proto/screen/Settings_page.dart';
+//import 'package:proto/screen/drawer.dart';
+import 'package:proto/tabs/feed_view.dart';
+import 'package:proto/tabs/reel_view.dart';
+import 'package:proto/tabs/tagged_view.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -15,7 +18,19 @@ class _ProfilePageState extends State<ProfilePage> {
     return DefaultTabController(
       length: 3,
       child: Scaffold(
-        appBar: AppBar(),
+        appBar: AppBar(
+          leading: GestureDetector(
+            child: Icon(
+              Icons.settings,
+              color: const Color.fromARGB(255, 32, 32, 32),
+            ),
+            onTap: () {
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (context) => MySettings()));
+            },
+          ),
+        ),
+        //endDrawer: MyDrawer(),
         body: SafeArea(
           child: Column(
             children: [
@@ -78,12 +93,12 @@ class _ProfilePageState extends State<ProfilePage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: const [
                   Text(
-                    'Ayush Patel',
+                    'Kavya',
                     style: TextStyle(fontWeight: FontWeight.bold),
                   ),
                   Text(' | '),
                   Text(
-                    'FlutterDeveloper',
+                    'Developer',
                     style: TextStyle(fontWeight: FontWeight.bold),
                   )
                 ],
@@ -103,7 +118,7 @@ class _ProfilePageState extends State<ProfilePage> {
               //link
 
               Text(
-                'youtube.com/ayush',
+                'youtube.com/kavya',
                 style: TextStyle(
                     color: Colors.blue[500], fontWeight: FontWeight.bold),
               ),
@@ -160,7 +175,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   ),
                   // reel tab
                   Tab(
-                    icon: Icon(Icons.tag_rounded, color: Colors.grey),
+                    icon: Icon(Icons.video_collection, color: Colors.grey),
                   ),
                   //tagged tab
                   Tab(
