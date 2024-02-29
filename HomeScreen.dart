@@ -25,11 +25,13 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         leading: Text('  id  '),
         actions: [
+          //  SizedBox(width: 0.1),
           const Icon(
             Icons.favorite_border_outlined,
             color: Colors.black,
             size: 30,
           ),
+          SizedBox(width: 15),
           const Icon(
             Icons.search,
             color: Colors.black,
